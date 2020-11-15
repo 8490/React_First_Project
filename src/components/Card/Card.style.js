@@ -8,9 +8,16 @@ export const StyledCardWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background:crimson;
-    overflow:hidden; 
+    overflow:hidden;
+    transition: 0.2s;
+    margin:10px;
+
+    &:hover {
+         transform: scale(1.05);
+         box-shadow: 0.3rem 0.3rem 0.9rem rgba(0,0,0,0.1);
+    } 
 `;
 
 export const StyledText = styled.p`
@@ -28,10 +35,10 @@ export const StyledImage = styled.img`
 `;
 
 
-export const Styledowerview = styled.p`
+export const Styledoverview = styled.p`
     color: white;
     font-weight:500;
-    width:93.5%;
+    width:95%;
     height:auto;
     font-size: 0.7em;
     text-align:justify;
@@ -42,7 +49,7 @@ export const Styledowerview = styled.p`
     display: hidden block;
     border:1px solid black;
     margin:auto;
-    border-radius: 4px;
+    border-radius: 10px;
 `;
 
 
@@ -63,6 +70,8 @@ export const Show = styled.a`
   display: inline-block;
   background:transparent;
   cursor: pointer;
+
+  
 `;
 
 export const Styledp= styled.p`

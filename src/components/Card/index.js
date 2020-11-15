@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Styledp, Show, RelativdivTitle, Relativdiv, StyledCardWrapper, StyledText, StyledImage, Styledowerview } from "./Card.style"
+import { Styledp, Show, RelativdivTitle, Relativdiv, StyledCardWrapper, StyledText, StyledImage, Styledoverview } from "./Card.style"
 
 export const Card = (props) => {
     const [showData, setShowData] = useState('none');
@@ -21,17 +21,19 @@ export const Card = (props) => {
                 <div>
                     <Show onMouseOver={showOverview} onMouseOut={DontshowOverview} onClick={showOverview}>
                         <Relativdiv>
-                            <Styledowerview style={{ display: showData }}>
+                            <Styledoverview style={{ display: showData }}>
                                 <Styledp>{props.overview}</Styledp>
-                            <Styledp>Release Date: {props.release_date}</Styledp>
+                                <Styledp>Release Date: {props.release_date}</Styledp>
                                 <Styledp style={{ color: 'yellow', fontSize: 15 }}>Avarage Vote: {props.vote_average}</Styledp>
-                            </Styledowerview>
+                            </Styledoverview>
+                            
                             <StyledImage src={props.poster_path} alt='movie poster'/>
                         </Relativdiv>
+
+                        <RelativdivTitle>
+                            <StyledText>{props.title}</StyledText>
+                        </RelativdivTitle>
                     </Show>
-                    <RelativdivTitle>
-                        <StyledText>{props.title}</StyledText>
-                    </RelativdivTitle>
                 </div>
             </StyledCardWrapper>
         </div>
