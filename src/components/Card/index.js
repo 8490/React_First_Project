@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { Styledp, Show, RelativdivTitle, Relativdiv, StyledCardWrapper, StyledText, StyledImage, Styledoverview } from "./Card.style"
+import { useHistory } from "react-router-dom";
+
+import { Styledp, Show, RelativdivTitle, Relativdiv, StyledCardWrapper, StyledText, StyledImage, Styledoverview, StyledMovieImage } from "./Card.style"
 
 export const Card = (props) => {
     const [showData, setShowData] = useState('none');
+
+    const history = useHistory();
+
     function showOverview() {
         if (showData === 'none') {
             setShowData('block')
@@ -14,29 +19,26 @@ export const Card = (props) => {
             setShowData('none')
         };
     }
-
+    
     return (
-        <div>
-            <StyledCardWrapper>
-                <div>
-                    <Show onMouseOver={showOverview} onMouseOut={DontshowOverview} onClick={showOverview}>
-                        <Relativdiv>
-                            <Styledoverview style={{ display: showData }}>
-                                <Styledp>{props.overview}</Styledp>
-                                <Styledp>Release Date: {props.release_date}</Styledp>
-                                <Styledp style={{ color: 'yellow', fontSize: 15 }}>Avarage Vote: {props.vote_average}</Styledp>
-                            </Styledoverview>
-                            
-                            <StyledImage src={props.poster_path} alt='movie poster'/>
-                        </Relativdiv>
+        <StyledCardWrapper onClick={() => history.push(`/detail/${props.id}`)}>
+            <Show onMouseOver={showOverview} onMouseOut={DontshowOverview} >
+                <Relativdiv>
+                    <Styledoverview style={{ display: showData }}>
+                        <Styledp>{props.overview}</Styledp>
+                        <Styledp>Release Date: {props.release_date}</Styledp>
+                        <Styledp style={{ color: 'yellow', fontSize: 15 }}>Avarage Vote: {props.vote_average}</Styledp>
+                    </Styledoverview>
+                    
+                    <StyledImage src={props.poster_path} alt='movie poster'/>
+                </Relativdiv>
 
-                        <RelativdivTitle>
-                            <StyledText>{props.title}</StyledText>
-                        </RelativdivTitle>
-                    </Show>
-                </div>
-            </StyledCardWrapper>
-        </div>
+                <RelativdivTitle>
+                    <StyledText>{props.title}</StyledText>
+                </RelativdivTitle>
+            </Show>
+        </StyledCardWrapper>
+       
     )
 }
 

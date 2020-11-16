@@ -79,6 +79,10 @@ export const Styledp= styled.p`
  margin:0;
 `;
 
+export const StyledMovieImage = styled.img`
+    width: auto;
+    height: 85%;
+
 
 
 
